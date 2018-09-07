@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/index">MineBlog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/blog">博客</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            {% if tp_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/index">{{ tp_user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/logout">退出</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">登录</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
