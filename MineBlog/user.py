@@ -1,12 +1,13 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, render
-from django.template import RequestContext
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
 
 from MineBlog.forms import LoginForm
 
 
+@csrf_protect
 def login(request):
     if request.method == 'GET':
         form = LoginForm()

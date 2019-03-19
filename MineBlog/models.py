@@ -6,4 +6,5 @@ class Blog(models.Model):
     nickname = models.TextField()
     title = models.TextField()
     content = models.TextField()
+    summary = models.TextField()
     timestamp = models.DateTimeField()
