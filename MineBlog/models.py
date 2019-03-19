@@ -7,4 +7,4 @@ class Blog(models.Model):
     title = models.TextField()
     content = models.TextField()
     summary = models.TextField()
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)

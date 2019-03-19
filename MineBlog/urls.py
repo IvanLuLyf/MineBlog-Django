@@ -26,5 +26,6 @@ urlpatterns = [
     path('index', blog.list_all),
     path('blog', blog.list_all),
     path('blog/list', blog.list_all),
+    path('blog/create', blog.create),
     url(r'^blog/view/(?P<blog_id>\d+)/$', blog.view),
 ]
