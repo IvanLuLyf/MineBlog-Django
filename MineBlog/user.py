@@ -11,7 +11,7 @@ from MineBlog.forms import LoginForm
 def login(request):
     if request.method == 'GET':
         form = LoginForm()
-        return render(request, 'login.html', {'form': form, })
+        return render(request, 'user_login.html', {'form': form, })
     else:
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -22,9 +22,9 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect("/blog/list")
             else:
-                return render(request, 'login.html', {'form': form, 'tp_error_msg': form.errors})
+                return render(request, 'user_login.html', {'form': form, 'tp_error_msg': form.errors})
         else:
-            return render(request, 'login.html', {'form': form, 'tp_error_msg': form.errors})
+            return render(request, 'user_login.html', {'form': form, 'tp_error_msg': form.errors})
 
 
 @login_required
