@@ -1,4 +1,5 @@
 import markdown
+from django.core.paginator import Paginator, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
@@ -6,8 +7,13 @@ from django.template.context_processors import csrf
 from MineBlog.models import Blog
 
 
-def list_all(request):
+def list_all(request, page=1):
     blog_list = Blog.objects.all()
+    paginator = Paginator(blog_list, 5)
+    try:
+        blog_list = paginator.page(page)
+    except EmptyPage:
+        blog_list = paginator.page(paginator.num_pages)
     user = request.user
     return render_to_response('blog_list.html', {'blog_list': blog_list, 'tp_user': user})
 
