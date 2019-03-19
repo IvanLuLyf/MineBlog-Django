@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blog.list_all),
     path('user/login', user.login),
+    path('user/register', user.register),
+    path('user/logout', user.logout),
     path('index', blog.list_all),
     path('blog', blog.list_all),
     path('blog/list', blog.list_all),
